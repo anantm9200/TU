@@ -1,1 +1,100 @@
 document.addEventListener('DOMContentLoaded',()=>{let menu=document.querySelector('.menu-toggle'),nav=document.querySelector('.nav');menu?.addEventListener('click',()=>{let open=nav.classList.toggle('open');menu.setAttribute('aria-expanded',String(open));menu.textContent=open?'Close menu ✕':'Menu ☰'});nav?.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{nav.classList.remove('open');menu?.setAttribute('aria-expanded','false')}));if('IntersectionObserver' in window){let observer=new IntersectionObserver(entries=>entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');observer.unobserve(e.target)}}),{threshold:.08});document.querySelectorAll('.fadein').forEach(e=>observer.observe(e))}else document.querySelectorAll('.fadein').forEach(e=>e.classList.add('visible'));const tabs=[...document.querySelectorAll('[data-path]')],panel=document.querySelector('#path-result');const info={prepare:['Prepare the investment narrative','Translate the opportunity into a clear business case, with assumptions, uses of capital, decision points and a disciplined information package.'],engage:['Structure investor communication','Map stakeholders and their information needs. Organise introductions, the question-and-answer process and appropriate disclosure checkpoints.'],evaluate:['Coordinate due diligence','Maintain consistent document versions, track requests, bring subject-matter teams into the process and make unresolved matters visible.'],steward:['Build long-term investor confidence','Create a predictable communication rhythm, acknowledge changes promptly and connect commitments to reporting and governance.']};function show(key){tabs.forEach(b=>b.setAttribute('aria-selected',String(b.dataset.path===key)));if(panel&&info[key])panel.innerHTML='<div class="kicker">Investor relations pathway</div><h3>'+info[key][0]+'</h3><p style="color:#5c7065;margin-top:15px">'+info[key][1]+'</p>'}tabs.forEach(b=>b.addEventListener('click',()=>show(b.dataset.path)));if(tabs.length)show('prepare');let form=document.querySelector('#enquiry-form');form?.addEventListener('submit',async e=>{e.preventDefault();let st=form.querySelector('.form-status'),btn=form.querySelector('[type=submit]');if(!form.reportValidity())return;st.textContent='Submitting your enquiry…';btn.disabled=true;try{let r=await fetch('/api/contact',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(Object.fromEntries(new FormData(form).entries()))});let data=await r.json();if(!r.ok)throw Error(data.error||'Submission failed.');st.textContent='Thank you. Your enquiry has been received.';form.reset()}catch(err){st.textContent=err.message||'Enquiry delivery is unavailable. Please try again later.'}finally{btn.disabled=false}})});
+
+/* TU / Global Executive Edition — accessible progressive enhancements */
+document.addEventListener('DOMContentLoaded',()=>{
+  const $=(q,root=document)=>root.querySelector(q);
+  const $$=(q,root=document)=>[...root.querySelectorAll(q)];
+  const reduce=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const progress=document.createElement('div');
+  progress.className='scroll-progress';progress.setAttribute('aria-hidden','true');document.body.appendChild(progress);
+  let scrollScheduled=false;
+  const updateProgress=()=>{const max=Math.max(1,document.documentElement.scrollHeight-innerHeight);progress.style.width=(Math.min(1,scrollY/max)*100)+'%';scrollScheduled=false};
+  addEventListener('scroll',()=>{if(!scrollScheduled){scrollScheduled=true;requestAnimationFrame(updateProgress)}},{passive:true});
+  updateProgress();
+  $$('.hero').forEach(hero=>{
+    const spot=document.createElement('div');spot.className='ambient-spotlight';spot.setAttribute('aria-hidden','true');hero.appendChild(spot);
+    if(!reduce)hero.addEventListener('pointermove',e=>{
+      const box=hero.getBoundingClientRect();
+      spot.style.setProperty('--mouse-x',((e.clientX-box.left)/box.width*100)+'%');
+      spot.style.setProperty('--mouse-y',((e.clientY-box.top)/box.height*100)+'%');
+    },{passive:true});
+  });
+  if(!reduce&&matchMedia('(pointer:fine)').matches){
+    $$('.architecture-visual,.lens-stage,.visual-panel').forEach(el=>{
+      el.setAttribute('data-tilt','');
+      el.addEventListener('pointermove',e=>{const b=el.getBoundingClientRect();const x=(e.clientX-b.left)/b.width-.5,y=(e.clientY-b.top)/b.height-.5;el.style.setProperty('--tilt-x',(-y*2)+'deg');el.style.setProperty('--tilt-y',(x*2)+'deg')},{passive:true});
+      el.addEventListener('pointerleave',()=>{el.style.setProperty('--tilt-x','0deg');el.style.setProperty('--tilt-y','0deg')});
+    });
+  }
+  const lensContent={
+    institutional:['Institutional investor','Where is the evidence behind the opportunity?','Understand the business model, risk framework, supporting assumptions and path to accountable reporting.',['Investment thesis','Risk','Disclosure']],
+    strategic:['Strategic partner','What is the basis for long-term alignment?','Explore shared objectives, complementary strengths, operating dependencies and ways to structure informed dialogue.',['Strategic fit','Operations','Continuity']],
+    leadership:['Executive leadership','How do we communicate our priorities consistently?','Bring the right leadership teams together around the narrative, documentation, open questions and next-step ownership.',['Strategy','Accountability','Readiness']],
+    governance:['Governance stakeholder','How are key decisions and risks overseen?','Clarify decision rights, information controls, approval pathways and expectations for responsible reporting.',['Oversight','Controls','Transparency']]
+  };
+  const lens=$('#lens-stage');
+  $$('[data-lens]').forEach(btn=>btn.addEventListener('click',()=>{
+    const a=lensContent[btn.dataset.lens];if(!a||!lens)return;
+    $$('[data-lens]').forEach(b=>{b.classList.toggle('active',b===btn);b.setAttribute('aria-selected',String(b===btn))});
+    lens.innerHTML='<span class="kicker">'+a[0]+'</span><h3>'+a[1]+'</h3><p>'+a[2]+'</p><div class="lens-tags">'+a[3].map(t=>'<span>'+t+'</span>').join('')+'</div>';
+  }));
+  const ready=$$('[data-ready]'),count=$('#ready-count'),meter=$('#ready-meter'),title=$('#ready-title'),copy=$('#ready-copy');
+  const renderReady=()=>{
+    if(!ready.length)return;
+    const n=ready.filter(x=>x.checked).length;
+    count.innerHTML=n+' <small>/ 6</small>';meter.style.width=(100*n/ready.length)+'%';
+    title.textContent=n===0?'Start with the fundamentals.':n<3?'The foundations are taking shape.':n<6?'Build on the preparation.':'A useful starting checklist is complete.';
+    copy.textContent=n===0?'Select the statements that describe your preparation. Your inputs stay in this browser session and are not submitted anywhere.':n===6?'All six items selected. A fuller independent diligence process may still be necessary.':'Review the unchecked items with the relevant finance, operations and governance owners.';
+  };
+  ready.forEach(x=>x.addEventListener('change',renderReady));
+  $('#ready-reset')?.addEventListener('click',()=>{ready.forEach(x=>{x.checked=false});renderReady()});renderReady();
+  const principles={
+    listen:['PRINCIPLE 01','Listen before proposing solutions.','Understanding a stakeholder’s objectives is the foundation of an informed dialogue.'],
+    clarify:['PRINCIPLE 02','Make complex information understandable.','Define terms, explain assumptions and separate evidence from expectation.'],
+    coordinate:['PRINCIPLE 03','Bring the right people into the conversation.','Finance, leadership, operations and advisers should each answer the questions they own.'],
+    follow:['PRINCIPLE 04','Build continuity through follow-through.','Clear actions and considered updates matter after the meeting has ended.']
+  };
+  const values=$('#values-display');
+  $$('[data-value]').forEach(btn=>btn.addEventListener('click',()=>{
+    const a=principles[btn.dataset.value];if(!a||!values)return;
+    $$('[data-value]').forEach(b=>{b.classList.toggle('active',b===btn);b.setAttribute('aria-selected',String(b===btn))});
+    values.innerHTML='<span class="label-slab">'+a[0]+'</span><h3>'+a[1]+'</h3><p>'+a[2]+'</p>';
+  }));
+  const deskContent={
+    investor:['Investor engagement','Build a decision-useful information trail.','Organise commercial context, performance assumptions, governance, risks and responses to diligence questions.',['Opportunity and operating context','Information and disclosure owners','Clear response and follow-up cadence']],
+    partners:['Strategic partnerships','Begin with business alignment.','Understand the partnership case, complementary capability, commercial dependencies and meaningful next steps.',['Shared objectives and scope','Roles and responsibilities','Relevant market considerations']],
+    internal:['Executive leadership','Equip leadership with a coherent narrative.','Connect stakeholder questions to the responsible internal teams, approved information and follow-up actions.',['Narrative and business priorities','Decision-making owners','Communication and escalation process']]
+  };
+  $$('[data-desk]').forEach(btn=>btn.addEventListener('click',()=>{
+    const a=deskContent[btn.dataset.desk],panel=$('#desk-panel');if(!a||!panel)return;
+    $$('[data-desk]').forEach(b=>{b.classList.toggle('active',b===btn);b.setAttribute('aria-selected',String(b===btn))});
+    panel.innerHTML='<div class="kicker">'+a[0]+'</div><h3>'+a[1]+'</h3><p>'+a[2]+'</p><ul class="checklist">'+a[3].map(x=>'<li>'+x+'</li>').join('')+'</ul>';
+  }));
+  const glossaryInput=$('#glossary-search');
+  glossaryInput?.addEventListener('input',()=>{
+    const q=glossaryInput.value.toLowerCase().trim();let visible=0;
+    $$('.glossary-term').forEach(el=>{const match=el.textContent.toLowerCase().includes(q);el.hidden=!match;if(match)visible++});
+    const empty=$('#glossary-empty');if(empty)empty.hidden=visible>0;
+  });
+  $$('[data-copy]').forEach(button=>button.addEventListener('click',async()=>{
+    const link=location.origin+location.pathname+'#'+encodeURIComponent(button.dataset.copy);
+    const status=$('#copy-status');
+    try{
+      if(!navigator.clipboard?.writeText)throw Error('Unavailable');
+      await navigator.clipboard.writeText(link);
+      if(status)status.textContent='Article link copied to clipboard.';
+    }catch{
+      if(status){status.textContent='Select and copy this article URL: '+link;}
+    }
+  }));
+  $$('[data-enquiry]').forEach(btn=>btn.addEventListener('click',()=>{
+    const select=$('select[name="interest"]');if(select){select.value=btn.dataset.enquiry;select.dispatchEvent(new Event('change',{bubbles:true}))}
+    const form=$('#enquiry-form');
+    if(form){form.scrollIntoView({behavior:reduce?'instant':'smooth',block:'center'});const msg=$('textarea[name="message"]',form);setTimeout(()=>msg?.focus({preventScroll:true}),reduce?0:450)}
+  }));
+  const toggle=$('.menu-toggle'),nav=$('.nav');
+  if(toggle&&nav){
+    document.addEventListener('keydown',e=>{if(e.key==='Escape'&&nav.classList.contains('open')){nav.classList.remove('open');toggle.setAttribute('aria-expanded','false');toggle.textContent='Menu ☰';toggle.focus()}});
+    document.addEventListener('pointerdown',e=>{if(nav.classList.contains('open')&&!nav.contains(e.target)&&!toggle.contains(e.target)){nav.classList.remove('open');toggle.setAttribute('aria-expanded','false');toggle.textContent='Menu ☰'}});
+  }
+});

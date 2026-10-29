@@ -16,3 +16,7 @@ The project is configured for `https://damngoctu.com` as the intended domain bas
 
 ## QA
 Check all routes and nav/footer links; test keyboard and mobile navigation, interactive stage controls, form validation and failure behaviour, layout at 320/375/768/1440px, and social cards after DNS is connected. Test actual form email delivery only after Vercel environment variables are set. External photography relies on Unsplash availability.
+
+
+## Global Executive Edition (October 2026)
+Expanded every main page with additional substantive sections: investor confidence architecture, stakeholder lens, session-only readiness self-assessment, cross-border context, executive philosophy selector, diligence workflow, glossary search, original editorial essays with share-link controls, enquiry intent routing, accessible FAQ, and privacy information flow. Added scroll progress, ambient hero spotlight, drifting marquee, smooth SVG/circular motion, subtle pointer tilt, enhanced focus states, responsive grids, and reduced-motion safeguards. No made-up investors, transactions, biography, personal quotations, track record or investment offers. Email delivery still requires the Vercel environment variables and live verification.
