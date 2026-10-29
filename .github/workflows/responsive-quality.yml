@@ -1,7 +1,7 @@
 name: TU Responsive Quality Gate
 on:
   push:
-    branches: [main, responsive-qa-fix]
+    branches: [main, responsive-qa-fix, tu-editorial-font-refresh]
   pull_request:
   workflow_dispatch:
 jobs:

@@ -40,3 +40,6 @@ Primary sources: https://www.invadeagro.com/ ; https://www.invadeagro.com/aboutu
 Four independent Capital Journal article URLs now give AI retrieval and traditional search crawlers distinct, topical documents instead of relying solely on a mixed-format insights page. Each offers visible headings, original explanatory paragraphs, source links to publicly available IAG operating material and cross-links. All are opinion/educational site editorial analysis, not a record of personal signed thought leadership by Tu.
 
 Do not infer indexation or AI citation from publication alone. Confirm live domain availability, crawl status, Search Console coverage and actual organic query performance after public deployment.
+
+## October 2026 editorial update
+Two new independently indexable long-form perspectives cover risk disclosure and agricultural intelligence due diligence. Both use original editorial framing, primary IAG business links and clear disclaimers. Page title/description, shared identity schema, BlogPosting node and sitemap generation are maintained from the existing SEO configuration. Avoid claiming verified personal transaction history, financial returns or AI search inclusion.

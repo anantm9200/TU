@@ -33,3 +33,6 @@ No keyword search volumes or traffic changes are asserted; thematic relevance is
 | /journal/capital-allocation-agri-value-chain.html | agricultural capital allocation, investment horizon, agribusiness risk | Compare financing requirements and economic drivers across operating models |
 
 These are semantic targets, not validated keyword search-volume data or a claim of current organic ranking.
+
+| /journal/risk-disclosure-investor-confidence.html | Informational | agriculture risk disclosure and investor confidence | risk governance, seasonality, transparency | Investors and analysts |
+| /journal/agricultural-data-investor-diligence.html | Informational | agricultural intelligence investor due diligence | data reliability, technology adoption, unit economics | Investors and sector researchers |

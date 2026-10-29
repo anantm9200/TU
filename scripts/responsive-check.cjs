@@ -79,6 +79,7 @@ const site='http://127.0.0.1:4173',fails=[],checks=[];
        if(url==='/'){
         await page.locator('[data-ready]').first().check();
         if(!(await page.locator('#ready-count').innerText()).includes('1'))fails.push(width+' homepage: readiness interaction broken');
+        const brief=page.locator('[data-brief="risk"]');await brief.click();if(!(await page.locator('#brief-response').innerText()).includes('uncertainty'))fails.push(width+' homepage: brief workbench did not switch');
         await page.evaluate(()=>window.scrollTo(0,0));
         await page.screenshot({path:'qa-screenshots/home-top-'+width+'.png',animations:'disabled'});
        }
