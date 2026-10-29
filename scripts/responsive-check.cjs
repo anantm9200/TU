@@ -71,6 +71,11 @@ const site='http://127.0.0.1:4173',fails=[],checks=[];
         await page.locator('[data-iag-sector="trade"]').click();
         if(!(await page.locator('#tu-lens-output').innerText()).includes('Trading discipline'))fails.push(width+' expertise: IAG Capital Lens broken');
        }
+       if([375,1440,2048].includes(width)){
+        if(url==='/insights.html')await page.locator('.journal-hub').screenshot({path:'qa-screenshots/journal-hub-'+width+'.png',animations:'disabled'});
+        if(url==='/')await page.locator('.capital-journey').screenshot({path:'qa-screenshots/capital-journey-'+width+'.png',animations:'disabled'});
+        if(url==='/journal/working-capital-agriculture.html')await page.locator('.reading-layout').screenshot({path:'qa-screenshots/article-reader-'+width+'.png',animations:'disabled'});
+       }
        if(url==='/'){
         await page.locator('[data-ready]').first().check();
         if(!(await page.locator('#ready-count').innerText()).includes('1'))fails.push(width+' homepage: readiness interaction broken');

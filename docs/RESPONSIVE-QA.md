@@ -23,3 +23,6 @@ The 60-combination run generated screenshots; FAQ desktop and mobile composition
 
 ## Capital Journal regression extension
 The responsive QA suite now visits 10 indexable pages (six main pages and four editorial articles) across 17 widths and tests article-specific structures, category filtering, search empty state and the investor briefing checklist.
+
+## New editorial screenshot coverage
+At 375, 1440 and 2048px, capture and visually review the homepage capital journey, article reader and journal hub. The journal anchor sits on the section so homepage calls to action land with the section heading visible.
