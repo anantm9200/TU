@@ -98,3 +98,28 @@ document.addEventListener('DOMContentLoaded',()=>{
     document.addEventListener('pointerdown',e=>{if(nav.classList.contains('open')&&!nav.contains(e.target)&&!toggle.contains(e.target)){nav.classList.remove('open');toggle.setAttribute('aria-expanded','false');toggle.textContent='Menu ☰'}});
   }
 });
+
+
+/* IAG capital-intelligence desk — content is informational, never an investment offer */
+document.addEventListener('DOMContentLoaded',()=>{
+  const sectors={
+    inputs:{n:'01 / 04',title:'Capital meets the distribution network.',copy:"IAG's agri-input model raises questions about the financial performance of inventory, regulated distribution and agricultural demand.",capital:'Working-capital discipline',risk:'Inventory and receivables',questions:['How do seasonal demand and cash conversion interact?','What controls govern inventory, partner credit and quality?','How does distribution growth translate into durable economics?']},
+    trade:{n:'02 / 04',title:'Trading discipline follows every shipment.',copy:'Commodity supply chains bring procurement, logistics and counterparties into the financial picture. Investor dialogue must consider the cash cycle and the operational conditions of delivery.',capital:'Trade-finance alignment',risk:'Market and counterparty exposure',questions:['How are commodity, foreign-exchange and logistics exposures managed?','How are counterparty credit terms assessed and documented?','Which controls support traceability and delivery performance?']},
+    technology:{n:'03 / 04',title:'Technology needs measurable operating value.',copy:'Data-led agricultural tools are most compelling when adoption, measurable field usefulness and recurring operating economics can be examined together.',capital:'Scalable adoption economics',risk:'Execution and measurable impact',questions:['What field outcomes does the technology help improve?','How does adoption translate to commercial value and repeatability?','What data controls and implementation costs are relevant?']},
+    resilience:{n:'04 / 04',title:'Long-term resilience needs long-term reasoning.',copy:'Sustainable agriculture programs involve physical risks, resource efficiency, outcomes verification and longer investment horizons.',capital:'Patient-capital fit',risk:'Climate and implementation uncertainty',questions:['Which environmental and operational outcomes can be verified?','What is the appropriate capital horizon for program development?','How are climate, resource and regulatory exposures considered?']}
+  };
+  const tabs=[...document.querySelectorAll('[data-iag-sector]')],stage=document.getElementById('tu-lens-output');
+  if(!stage||!tabs.length)return;
+  const escape=t=>String(t).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+  const render=k=>{
+    const d=sectors[k];if(!d)return;
+    tabs.forEach(b=>{const active=b.dataset.iagSector===k;b.classList.toggle('on',active);b.setAttribute('aria-selected',String(active));b.tabIndex=active?0:-1});
+    stage.innerHTML='<div class="tu-lens-brow"><span>INVESTOR’S VIEW</span><span>'+d.n+'</span></div><h3>'+escape(d.title)+'</h3><p>'+escape(d.copy)+'</p><div class="tu-lens-metrics"><div><span>Capital priority</span><b>'+escape(d.capital)+'</b></div><div><span>Principal exposure</span><b>'+escape(d.risk)+'</b></div></div><h4>Questions to test</h4><ul>'+d.questions.map(q=>'<li>'+escape(q)+'</li>').join('')+'</ul><p class="tu-lens-disclaimer">Illustrative due-diligence questions. No funding offer, forecast or assurance of returns.</p>';
+  };
+  tabs.forEach((b,i)=>{b.addEventListener('click',()=>render(b.dataset.iagSector));b.addEventListener('keydown',e=>{
+    if(!['ArrowDown','ArrowUp','Home','End'].includes(e.key))return;
+    e.preventDefault();const next=e.key==='Home'?0:e.key==='End'?tabs.length-1:(i+(e.key==='ArrowDown'?1:-1)+tabs.length)%tabs.length;
+    tabs[next].focus();render(tabs[next].dataset.iagSector);
+  })});
+  render('inputs');
+});

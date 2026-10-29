@@ -22,3 +22,15 @@ The name **Dam Ngoc Tu** can overlap with unrelated public figures. Keep the web
 
 ## Measure
 After going live, use URL Inspection, page-level Search Console data, Google generative AI reports where accessible, and targeted manual query checks. Track organic search and AI referrals when observable. Never infer AI citations from a sitemap.
+
+## IAG-specific entity and answer coverage — 29 October 2026
+
+The live-copy expansion now directly ties Tu's financial approach and investor-relations mandate to IAG's publicly described businesses: regulated agri inputs and distribution, commodity trading, field programs, agri-tech and sustainability. External references to the primary IAG pages are present in public HTML. The interactive capital-intelligence tool has a static accessible topical summary for crawlers and people who do not use JavaScript.
+
+Important query/page pairs:
+- **What does Dam Ngoc Tu work on at IAG?** — Profile and Expertise pages; editorial framing of role-specific priorities, not verified completed transactions.
+- **How does IAG's agricultural model affect investor-relations priorities?** — Home and Expertise; focus on working capital, cash conversion, logistics, governance, capital allocation and stakeholder alignment.
+- **How does Tu apply financial judgment in global investor engagement?** — Profile and Home; user-commissioned positioning with no invented degrees, past deals, investment returns or endorsements.
+- **What financial risks matter in agribusiness expansion?** — Insights and Expertise; cash-cycle, commodity-price, currency, seasonality and execution considerations.
+
+Primary sources: https://www.invadeagro.com/ ; https://www.invadeagro.com/aboutus ; https://www.invadeagro.com/iag ; https://www.invadeagro.com/agriintelligence ; https://www.invadeagro.com/decisionmakers . The person-title discrepancy remains unresolved and cannot be fixed by schema alone.

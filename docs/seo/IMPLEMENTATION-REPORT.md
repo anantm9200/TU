@@ -33,3 +33,8 @@ Confirm and attach actual custom domain; check SSL, canonical host, crawl status
 - **90 days:** review evidence-backed search performance, improve priority pages from actual query data, measure CWV and fix visible issues without compromising brand design.
 
 No ranking gains, indexation or AI citations are claimed.
+
+## Additional IAG / Finance Intelligence editorial revision
+Expanded Home, Profile, Investor Relations, Perspectives and Contact with 11 new in-depth sections. Replaced generic introductory copy with IAG-specific material, cross-referenced public IAG sources, added an accessible client-side four-topic IAG Capital Intelligence Lens with static summary, added long-form editorial analysis on agribusiness working capital and investment quality, strengthened IAG references in all five shared footers/prefooters, and updated five titles/descriptions via central SEO config.
+
+Content claims are commissioned positioning, not independently proven financial achievements. A separate `docs/content/EDITORIAL-PROVENANCE.md` documents facts, editorial framework and the outstanding difference in the corporate leadership-directory title. No invented financial metrics or actual transactions were added.

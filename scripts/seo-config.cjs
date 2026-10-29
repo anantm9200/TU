@@ -11,8 +11,8 @@ const PAGES=[
     "path": "/",
     "kind": "WebPage",
     "label": "Home",
-    "title": "Dam Ngoc Tu | Global Investor Relations & Strategic Capital",
-    "description": "Dam Ngoc Tu is Global Director for Investor Relations at Invade Agro Global. Explore investor engagement, cross-border capital dialogue and long-term value stewardship.",
+    "title": "Dam Ngoc Tu | IAG Global Investor Relations & Finance",
+    "description": "Explore Dam Ngoc Tu's financial intelligence and global investor-relations work with Invade Agro Global, connecting agricultural operations, capital and investors.",
     "image": "architecture"
   },
   {
@@ -20,8 +20,8 @@ const PAGES=[
     "path": "/about.html",
     "kind": "ProfilePage",
     "label": "Profile",
-    "title": "About Dam Ngoc Tu | Global Investor Relations Director",
-    "description": "Explore Dam Ngoc Tu's global investor relations mandate, approach to investor confidence and international stakeholder dialogue.",
+    "title": "Dam Ngoc Tu | Financial Intelligence & IAG Leadership",
+    "description": "Discover Dam Ngoc Tu's investor-relations role at Invade Agro Global, his financial approach and the importance of informed capital dialogue across agriculture.",
     "image": "architecture"
   },
   {
@@ -29,8 +29,8 @@ const PAGES=[
     "path": "/expertise.html",
     "kind": "WebPage",
     "label": "Investor Relations",
-    "title": "Investor Relations Expertise | Dam Ngoc Tu",
-    "description": "Investor relations, investment readiness, stakeholder coordination, diligence and international investor communication.",
+    "title": "Investor Relations & Capital Strategy | Dam Ngoc Tu",
+    "description": "Explore Dam Ngoc Tu's work with IAG across investor engagement, capital strategy, agricultural business economics, due diligence and stakeholder relations.",
     "image": "market"
   },
   {
@@ -38,8 +38,8 @@ const PAGES=[
     "path": "/insights.html",
     "kind": "CollectionPage",
     "label": "Perspectives",
-    "title": "Investor Relations Perspectives | Dam Ngoc Tu",
-    "description": "Original editorial perspectives on investor trust, international capital dialogue, investment readiness, disclosure and governance.",
+    "title": "Financial & Investor Relations Insights | Dam Ngoc Tu",
+    "description": "Editorial perspectives on finance, working capital, investor confidence and agricultural growth in the context of Invade Agro Global's operations.",
     "image": "data"
   },
   {
@@ -47,8 +47,8 @@ const PAGES=[
     "path": "/contact.html",
     "kind": "ContactPage",
     "label": "Contact",
-    "title": "Contact Dam Ngoc Tu | Investor Relations Enquiries",
-    "description": "Contact the office of Dam Ngoc Tu about investor relations, strategic partnerships and international stakeholder engagement.",
+    "title": "IAG Investor Relations Enquiries | Dam Ngoc Tu",
+    "description": "Connect with Dam Ngoc Tu's investor-relations office regarding Invade Agro Global, institutional dialogue, cross-border coordination and strategic partnerships.",
     "image": "architecture"
   },
   {
