@@ -17,3 +17,6 @@ The first complete Chromium run found Contact page overflow at 768px (827px cont
 
 ## QA pass, 60 combinations
 The second GitHub Actions run (https://github.com/anantm9200/TU/actions/runs/40935993106) completed successfully after the 768px form fix. The follow-up smoke test increases viewport coverage to 320–2560px, explicitly testing the 2048px supplied screenshot width and a 2560px large monitor.
+
+## Screenshot review notes
+The 60-combination run generated screenshots; FAQ desktop and mobile compositions were inspected. The accordion question text fell back to a serif face when external Google Fonts were unavailable, so an explicit sans-serif fallback was added. Mobile hero copy previously began low in the viewport when the background image failed to load; mobile-only hero centering improves composition while preserving the desktop immersive hero.
