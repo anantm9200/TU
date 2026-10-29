@@ -108,6 +108,30 @@ const PAGES=[
   "article": true,
   "articleTitle": "Capital allocation across an integrated agricultural value chain",
   "category": "Capital Discipline"
+},
+{
+  "file": "journal/risk-disclosure-investor-confidence.html",
+  "path": "/journal/risk-disclosure-investor-confidence.html",
+  "kind": "WebPage",
+  "label": "Risk Disclosure",
+  "title": "Risk Disclosure & Investor Confidence | Dam Ngoc Tu Insights",
+  "description": "Understand how transparent risk disclosure supports serious investor relations in agriculture, from seasonality and currencies to governance and operating evidence.",
+  "image": "data",
+  "article": true,
+  "articleTitle": "Why risk transparency strengthens investor confidence",
+  "category": "Investor Relations"
+},
+{
+  "file": "journal/agricultural-data-investor-diligence.html",
+  "path": "/journal/agricultural-data-investor-diligence.html",
+  "kind": "WebPage",
+  "label": "Agricultural Intelligence",
+  "title": "Agricultural Intelligence & Investor Diligence | Dam Ngoc Tu",
+  "description": "A detailed perspective on agricultural intelligence, data governance, adoption economics, evidence and how investors can evaluate technology in agribusiness.",
+  "image": "data",
+  "article": true,
+  "articleTitle": "What makes agricultural intelligence credible to investors?",
+  "category": "Capital Discipline"
 }
 ];
 const HERO_IMAGES={

@@ -32,3 +32,7 @@ Sitewide FAQ composition fixed with a shared aligned desktop grid and stacked mo
 
 ## Editorial depth upgrade
 The site now includes four separately indexable Capital Journal articles with descriptive URLs, editorial source references, reading navigation and related material. The Home, Profile, Investor Relations, Perspectives, Contact and Privacy pages have additional substantive sections. New client-side interactions include a capital question board, searchable category-filtered journal and investor briefing checklist. No transaction or return claims have been invented.
+
+
+## Finance editorial journal expansion
+Published two additional independently indexable original articles: Risk Disclosure & Investor Confidence and Agricultural Intelligence & Investor Diligence. Each has own canonical, WebPage and BlogPosting JSON-LD, article outline, related reading and IAG source links. Six editorial articles are now reachable from the searchable and filterable Insights index. These are not personally attributed quotes, achieved returns or financing offers.
