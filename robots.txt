@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://damngoctu.com/sitemap.xml
