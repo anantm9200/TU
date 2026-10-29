@@ -11,3 +11,6 @@ User screenshot: at wide desktop width, FAQ section heading starts at the left w
 
 ## Test plan
 CI Playwright test is intended for viewports 320–1920px across all six pages, with overflow and FAQ alignment assertions, interaction checks and captured screenshots. External images/fonts are disabled for deterministic structural checks; review production media separately.
+
+## Browser QA iteration
+The first complete Chromium run found Contact page overflow at 768px (827px content). Its form and adjacent copy were still rendered side-by-side. The layout now stacks these at <=1024px and ensures form fields use fluid, non-overflowing columns. Re-run all ten widths before promoting to main.

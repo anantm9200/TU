@@ -379,3 +379,11 @@ main{min-width:0;max-width:100%}
  .hero h1{font-size:32px}.hero-copy{font-size:13px}
  .section.faq-layout .faq-details summary{font-size:13px}
 }
+
+
+/* Prevent contact form fields from forcing tablet widths wider than the viewport. */
+.form-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+.form-grid>.field{min-width:0}
+.field input,.field select,.field textarea{width:100%;min-width:0;max-width:100%;box-sizing:border-box}
+@media(max-width:1024px){.split{grid-template-columns:1fr}.split>*{min-width:0}}
+@media(max-width:700px){.form-grid{grid-template-columns:1fr}.field.wide{grid-column:1/-1}.intent-grid{grid-template-columns:1fr}}
