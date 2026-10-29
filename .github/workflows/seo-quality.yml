@@ -1,0 +1,26 @@
+name: TU SEO Quality Gate
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Check SEO script syntax
+        run: |
+          node --check scripts/seo-config.cjs
+          node --check scripts/seo-generate.cjs
+          node --check scripts/seo-audit.cjs
+          node --check assets/site.js
+      - name: Check generated metadata and sitemap
+        run: node scripts/seo-generate.cjs --check
+      - name: Validate SEO and internal links
+        run: node scripts/seo-audit.cjs

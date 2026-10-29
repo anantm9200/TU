@@ -1,0 +1,8 @@
+page,type,indexable,canonical,status,metadata_before,issue
+/,WebPage,yes,https://damngoctu.com/,not_live_verified,unique_initial,"Schema/social metadata incomplete"
+/about.html,ProfilePage,yes,https://damngoctu.com/about.html,not_live_verified,unique_initial,"Schema/social metadata incomplete"
+/expertise.html,WebPage,yes,https://damngoctu.com/expertise.html,not_live_verified,unique_initial,"Schema/social metadata incomplete"
+/insights.html,CollectionPage,yes,https://damngoctu.com/insights.html,not_live_verified,unique_initial,"Schema/social metadata incomplete"
+/contact.html,ContactPage,yes,https://damngoctu.com/contact.html,not_live_verified,unique_initial,"Schema/social metadata incomplete"
+/privacy.html,WebPage,yes,https://damngoctu.com/privacy.html,not_live_verified,unique_initial,"Schema/social metadata incomplete"
+/404.html,ErrorPage,no,,not_live_verified,no_canonical,"Missing noindex originally"
