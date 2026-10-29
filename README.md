@@ -28,3 +28,7 @@ Added IAG-focused sections to Home, Profile, Investor Relations, Perspectives an
 
 ## Responsive visual consistency — 29 Oct 2026
 Sitewide FAQ composition fixed with a shared aligned desktop grid and stacked mobile layout; reduced excessive section/card whitespace, improved 900–1120px navigation, strengthened grid overflow constraints and introduced readable labels for mobile finance-table cells. The 3% content and 1.5% header/footer horizontal gutters remain. Browser regression workflow tests ten breakpoints and captures FAQ screenshots.
+
+
+## Editorial depth upgrade
+The site now includes four separately indexable Capital Journal articles with descriptive URLs, editorial source references, reading navigation and related material. The Home, Profile, Investor Relations, Perspectives, Contact and Privacy pages have additional substantive sections. New client-side interactions include a capital question board, searchable category-filtered journal and investor briefing checklist. No transaction or return claims have been invented.

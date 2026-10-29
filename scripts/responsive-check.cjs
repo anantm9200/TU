@@ -55,6 +55,18 @@ const site='http://127.0.0.1:4173',fails=[],checks=[];
         await page.keyboard.press('Escape');
         if(await menu.getAttribute('aria-expanded')!=='false')fails.push(width+' '+url+' Escape did not close mobile navigation');
        }
+       if(url==='/insights.html'){
+        const filters=page.locator('[data-filter="global"]');await filters.click();
+        if(await page.locator('[data-journal-card]:visible').count()!==1)fails.push(width+' '+url+' category filter not working');
+        await page.locator('#journal-query').fill('nonexistent phrase 12345');
+        if(!(await page.locator('#journal-empty').isVisible()))fails.push(width+' '+url+' journal search empty state broken');
+        await page.locator('#journal-query').fill('');
+        await page.locator('[data-filter="all"]').click();
+       }
+       if(url==='/expertise.html'){
+        await page.locator('[data-briefing-check]').first().check();
+        if(!(await page.locator('#briefing-count').innerText()).includes('1'))fails.push(width+' '+url+' briefing checklist broken');
+       }
        if(url==='/expertise.html'){
         await page.locator('[data-iag-sector="trade"]').click();
         if(!(await page.locator('#tu-lens-output').innerText()).includes('Trading discipline'))fails.push(width+' expertise: IAG Capital Lens broken');

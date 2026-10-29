@@ -123,3 +123,36 @@ document.addEventListener('DOMContentLoaded',()=>{
   })});
   render('inputs');
 });
+
+
+/* Investor questions board, editorial hub search and investor briefing checklist */
+document.addEventListener('DOMContentLoaded',()=>{
+ const board={
+ growth:{label:'01',title:'Does growth translate into durable business value?',copy:'Examine the relationship between demand, operating margins, reinvestment and the conditions needed to deliver repeatable results.',tags:['Commercial economics','Operating evidence','Growth assumptions'],link:'/journal/capital-allocation-agri-value-chain.html'},
+ cash:{label:'02',title:'What does the cash cycle reveal about the business?',copy:'Look at procurement, inventory, collection terms and how much capital remains committed through the operating season.',tags:['Cash conversion','Inventory','Capital timing'],link:'/journal/working-capital-agriculture.html'},
+ risk:{label:'03',title:'Which assumptions could materially change the outcome?',copy:'Consider commodity price shifts, counterparties, regulatory requirements, currency and the practical constraints of execution.',tags:['Risk sensitivity','Operating resilience','Counterparties'],link:'/journal/investment-readiness-agri-business.html'},
+ governance:{label:'04',title:'How will information stay reliable after the first conversation?',copy:'Clarify who approves disclosures, how open questions are tracked and how reporting supports accountable stakeholder relationships.',tags:['Disclosure','Governance','Stewardship'],link:'/journal/cross-border-investor-trust.html'}
+ };
+ const stage=document.querySelector('#question-stage'),tabs=[...document.querySelectorAll('[data-board]')];
+ const safe=s=>String(s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+ const renderBoard=id=>{
+  const a=board[id];if(!a||!stage)return;
+  tabs.forEach(b=>{let on=b.dataset.board===id;b.classList.toggle('is-active',on);b.setAttribute('aria-selected',String(on));b.tabIndex=on?0:-1});
+  stage.innerHTML='<div class="question-stage-top"><span>CAPITAL QUESTION / '+a.label+'</span><span>INVADE AGRO GLOBAL</span></div><h3>'+safe(a.title)+'</h3><p>'+safe(a.copy)+'</p><div class="question-pills">'+a.tags.map(t=>'<span>'+safe(t)+'</span>').join('')+'</div><a href="'+a.link+'">Read the related perspective ↗</a>';
+ };
+ tabs.forEach((b,i)=>{b.addEventListener('click',()=>renderBoard(b.dataset.board));b.addEventListener('keydown',e=>{if(!['ArrowUp','ArrowDown','Home','End'].includes(e.key))return;e.preventDefault();let next=e.key==='Home'?0:e.key==='End'?tabs.length-1:(i+(e.key==='ArrowDown'?1:-1)+tabs.length)%tabs.length;tabs[next].focus();renderBoard(tabs[next].dataset.board)})});
+ const cards=[...document.querySelectorAll('[data-journal-card]')],filterButtons=[...document.querySelectorAll('[data-filter]')],query=document.querySelector('#journal-query'),empty=document.querySelector('#journal-empty');
+ let active='all';
+ const renderCards=()=>{const search=(query?.value||'').trim().toLowerCase();let total=0;cards.forEach(card=>{const show=(active==='all'||card.dataset.category===active)&&(!search||card.dataset.search.includes(search));card.hidden=!show;if(show)total++});if(empty)empty.hidden=total>0;};
+ filterButtons.forEach(btn=>btn.addEventListener('click',()=>{active=btn.dataset.filter;filterButtons.forEach(b=>{let on=b===btn;b.classList.toggle('active',on);b.setAttribute('aria-pressed',String(on))});renderCards()}));
+ query?.addEventListener('input',renderCards);
+ const items=[...document.querySelectorAll('[data-briefing-check]')],count=document.querySelector('#briefing-count'),bar=document.querySelector('#briefing-progress'),message=document.querySelector('#briefing-message');
+ const update=()=>{if(!items.length)return;const n=items.filter(x=>x.checked).length;if(count)count.innerHTML=n+' <small>/ 5</small>';if(bar)bar.style.width=(n/items.length*100)+'%';if(message)message.textContent=n===0?'Build a clearer discussion.':n<5?'Keep connecting the evidence.':'All five preparation areas reviewed.'};
+ items.forEach(x=>x.addEventListener('change',update));
+ document.querySelector('#briefing-reset')?.addEventListener('click',()=>{items.forEach(x=>x.checked=false);update()});
+ update();
+ document.querySelectorAll('[data-copy-article]').forEach(btn=>btn.addEventListener('click',async()=>{
+   const status=btn.parentElement.querySelector('.copy-result');
+   try{await navigator.clipboard.writeText(location.href);if(status)status.textContent='Link copied.'}catch{if(status)status.textContent='Copy this URL: '+location.href}
+ }));
+});

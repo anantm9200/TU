@@ -20,3 +20,6 @@ The second GitHub Actions run (https://github.com/anantm9200/TU/actions/runs/409
 
 ## Screenshot review notes
 The 60-combination run generated screenshots; FAQ desktop and mobile compositions were inspected. The accordion question text fell back to a serif face when external Google Fonts were unavailable, so an explicit sans-serif fallback was added. Mobile hero copy previously began low in the viewport when the background image failed to load; mobile-only hero centering improves composition while preserving the desktop immersive hero.
+
+## Capital Journal regression extension
+The responsive QA suite now visits 10 indexable pages (six main pages and four editorial articles) across 17 widths and tests article-specific structures, category filtering, search empty state and the investor briefing checklist.
