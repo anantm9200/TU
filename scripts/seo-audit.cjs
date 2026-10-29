@@ -54,7 +54,7 @@ for(const p of PAGES){
     if(org.url!==ORGANIZATION_URL||person.worksFor?.['@id']!==org['@id'])fail.push(file+': organization relationship mismatch');
     if(webpage['@type']!==p.kind||webpage.about?.['@id']!==person['@id'])fail.push(file+': page schema mismatch');
     if(p.kind==='ProfilePage'&&webpage.mainEntity?.['@id']!==person['@id'])fail.push(file+': missing ProfilePage mainEntity');
-    if(p.path!=='/'&&!nodes.some(x=>x['@type']==='BreadcrumbList'&&x.itemListElement?.length===2))fail.push(file+': missing BreadcrumbList');
+    if(p.path!=='/'&&!nodes.some(x=>x['@type']==='BreadcrumbList'&&x.itemListElement?.length===(p.article?3:2)))fail.push(file+': missing BreadcrumbList');
    }
   }catch(e){fail.push(file+': invalid JSON-LD '+e.message)}
  }

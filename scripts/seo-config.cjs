@@ -60,6 +60,55 @@ const PAGES=[
     "description": "Learn how the Dam Ngoc Tu investor relations website handles enquiries, third-party services, disclosure and privacy questions.",
     "image": "architecture"
   }
+,
+{
+  "file": "journal/working-capital-agriculture.html",
+  "path": "/journal/working-capital-agriculture.html",
+  "kind": "WebPage",
+  "label": "Working Capital in Agriculture",
+  "title": "Working Capital in Agriculture | Investor Relations Insights",
+  "description": "Explore inventory, receivables, cash conversion and financing discipline in agricultural businesses, with investor-relations context for IAG.",
+  "image": "market",
+  "article": true,
+  "articleTitle": "Why working capital tells the real story of agricultural growth",
+  "category": "Capital Discipline"
+},
+{
+  "file": "journal/investment-readiness-agri-business.html",
+  "path": "/journal/investment-readiness-agri-business.html",
+  "kind": "WebPage",
+  "label": "Investment Readiness",
+  "title": "Investor Readiness for Agribusiness | Dam Ngoc Tu Insights",
+  "description": "A practical investor-readiness guide covering operating evidence, governance, diligence materials, risk and financial narratives in agribusiness.",
+  "image": "architecture",
+  "article": true,
+  "articleTitle": "What makes an agricultural business genuinely investor-ready?",
+  "category": "Investor Relations"
+},
+{
+  "file": "journal/cross-border-investor-trust.html",
+  "path": "/journal/cross-border-investor-trust.html",
+  "kind": "WebPage",
+  "label": "Cross-Border Investor Trust",
+  "title": "Cross-Border Investor Trust & Disclosure | Investor Relations",
+  "description": "Explore cross-border investor dialogue, disclosure, stakeholder alignment, regulatory context and governance in international agribusiness.",
+  "image": "data",
+  "article": true,
+  "articleTitle": "Building investor trust when capital crosses borders",
+  "category": "Global Engagement"
+},
+{
+  "file": "journal/capital-allocation-agri-value-chain.html",
+  "path": "/journal/capital-allocation-agri-value-chain.html",
+  "kind": "WebPage",
+  "label": "Capital Allocation",
+  "title": "Capital Allocation in Agricultural Value Chains | Insights",
+  "description": "Understand how capital needs, investment horizons, operating risk and governance differ across agriculture distribution, commodities and technology.",
+  "image": "architecture",
+  "article": true,
+  "articleTitle": "Capital allocation across an integrated agricultural value chain",
+  "category": "Capital Discipline"
+}
 ];
 const HERO_IMAGES={
   "architecture": "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=2000&q=84",
@@ -74,13 +123,15 @@ function graphFor(page){
  const primary={'@type':page.kind,'@id':pageId,name:page.title,url,inLanguage:'en',description:page.description,isPartOf:{'@id':websiteId},about:{'@id':personId}};
  if(page.kind==='ProfilePage')primary.mainEntity={'@id':personId};
  if(page.kind==='ContactPage')primary.mainEntity={'@id':personId};
+ if(page.article)primary.mainEntity={'@id':url+'#article'};
  const graph=[website,organization,person,primary];
+ if(page.article)graph.push({'@type':'BlogPosting','@id':url+'#article',headline:page.articleTitle,description:page.description,articleSection:page.category,inLanguage:'en',mainEntityOfPage:{'@id':pageId},publisher:{'@id':websiteId},about:[{'@type':'Thing',name:'Investor relations'},{'@type':'Thing',name:'Agricultural finance'}]});
  if(page.path!=='/'){
   const bc=url+'#breadcrumb';
   primary.breadcrumb={'@id':bc};
   graph.push({'@type':'BreadcrumbList','@id':bc,itemListElement:[
    {'@type':'ListItem',position:1,name:'Home',item:BASE+'/'},
-   {'@type':'ListItem',position:2,name:page.label,item:url}
+   ...(page.article?[{'@type':'ListItem',position:2,name:'Perspectives',item:BASE+'/insights.html'},{'@type':'ListItem',position:3,name:page.label,item:url}]:[{'@type':'ListItem',position:2,name:page.label,item:url}])
   ]});
  }
  return {'@context':'https://schema.org','@graph':graph};

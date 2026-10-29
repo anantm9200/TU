@@ -3,7 +3,7 @@
 const {chromium}=require('playwright');
 const fs=require('fs');
 const widths=[320,344,360,375,390,414,540,768,820,900,1024,1120,1280,1440,1920,2048,2560];
-const pages=['/','/about.html','/expertise.html','/insights.html','/contact.html','/privacy.html'];
+const pages=['/','/about.html','/expertise.html','/insights.html','/contact.html','/privacy.html','/journal/working-capital-agriculture.html','/journal/investment-readiness-agri-business.html','/journal/cross-border-investor-trust.html','/journal/capital-allocation-agri-value-chain.html'];
 const site='http://127.0.0.1:4173',fails=[],checks=[];
 (async()=>{
  const browser=await chromium.launch({headless:true,args:['--no-sandbox']});
