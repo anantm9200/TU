@@ -24,3 +24,7 @@ Expanded every main page with additional substantive sections: investor confiden
 
 ## Financial Intelligence / IAG editorial expansion — 29 October 2026
 Added IAG-focused sections to Home, Profile, Investor Relations, Perspectives and Contact. Topics include Tu's finance intelligence and analytical investor approach, IAG's verified agri-input/distribution, commodity, agri-intelligence and sustainability business themes, capital needs and working-capital risk, global investor stakeholder coordination, and practical IAG investor-related enquiries. The Investor Relations page includes a functional accessible IAG Capital Intelligence Lens with four operating themes and varied due diligence prompts. References link to official IAG pages. This is **commissioned executive positioning**, not verified transaction or personal achievement evidence. No amounts raised, personally completed deals, investor endorsements, career history, licences or investment offers were invented. SEO metadata was kept in sync with the canonical generator; baseline layout and design system were preserved.
+
+
+## Responsive visual consistency — 29 Oct 2026
+Sitewide FAQ composition fixed with a shared aligned desktop grid and stacked mobile layout; reduced excessive section/card whitespace, improved 900–1120px navigation, strengthened grid overflow constraints and introduced readable labels for mobile finance-table cells. The 3% content and 1.5% header/footer horizontal gutters remain. Browser regression workflow tests ten breakpoints and captures FAQ screenshots.

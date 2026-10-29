@@ -279,3 +279,103 @@ a.tu-arrow:hover,.tu-inquiry button:hover{color:#fff}
 @media(max-width:800px){.tu-opening,.tu-profile-grid,.tu-dedication,.tu-editorial-hero,.tu-lens-app,.tu-essay{grid-template-columns:1fr}.tu-opening-visual,.tu-profile-deep{min-height:400px}.tu-opening-copy,.tu-profile-text{padding:20px 0}.tu-lens-output{min-height:390px}.tu-mandate-flow{grid-template-columns:1fr}.tu-insight-bar{grid-template-columns:1fr}.tu-insight-bar>a{grid-column:auto}.tu-inquiry-grid,.tu-thesis{grid-template-columns:1fr}.tu-editorial-graphic{min-height:250px}.tu-essay{gap:13px}.tu-table-row{grid-template-columns:.7fr 1fr 1fr;gap:10px;padding:15px}}
 @media(max-width:560px){.tu-finance-grid,.tu-sector-grid,.tu-mini-grid,.tu-lens-metrics{grid-template-columns:1fr}.tu-feature,.tu-sector{min-height:220px}.tu-feature h3,.tu-sector h3{margin-top:24px}.tu-visual-top,.tu-visual-foot{font-size:8px;gap:8px}.tu-opening-visual,.tu-profile-deep{min-height:370px;padding:26px}.tu-lens-navigation,.tu-lens-output{padding:26px}.tu-table-head{display:none}.tu-table-row{grid-template-columns:1fr;gap:5px;border-bottom:1px solid #cadec6}.tu-table-row span:first-child{color:#16663f}.tu-essay{padding:23px}.tu-contact-source{flex-direction:column;align-items:flex-start}.tu-insight-bar{padding:25px}.tu-finance-grid{gap:10px}.tu-profile-deep h3{font-size:30px}}
 @media(prefers-reduced-motion:reduce){.tu-orbit-ring,.tu-editorial-graphic:before{animation:none!important}.tu-opening-visual:before{transform:none!important}}
+
+
+/* 2026-10-29 — consistent responsive composition. 3% main and 1.5% header/footer gutters remain unchanged. */
+:root{--section-rhythm:clamp(52px,4.8vw,80px)}
+html,body{width:100%;max-width:100%;overflow-x:clip}
+main{min-width:0;max-width:100%}
+.section{padding-top:var(--section-rhythm);padding-bottom:var(--section-rhythm)}
+.section.ui-section.compact-section{padding-top:clamp(46px,4vw,66px);padding-bottom:clamp(48px,4.3vw,70px)}
+.section-intro{grid-template-columns:minmax(0,1.08fr) minmax(0,.92fr);gap:clamp(20px,3vw,70px);margin-bottom:clamp(24px,3vw,40px);align-items:end}
+.section-intro>div,.section-intro>p{min-width:0}
+.section-intro>p{max-width:570px;margin:0 0 4px;line-height:1.85}
+:where(.section-intro,.split,.grid2,.grid3,.architecture,.lens-layout,.readiness-layout,.global-grid,.editorial-split,.values-board,.timeline-grid,.desk-layout,.matrix-grid,.feature-essay,.preparation-grid,.footer-grid,.tu-opening,.tu-profile-grid,.tu-dedication,.tu-editorial-hero,.tu-essay,.tu-lens-app,.tu-finance-grid,.tu-sector-grid,.tu-thesis,.tu-mandate-flow,.tu-inquiry-grid,.tu-mini-grid,.tu-insight-bar)>*{min-width:0}
+:where(.card,.elevated-card,.tu-feature,.tu-sector,.tu-inquiry,.theme-card,.intent-card){min-width:0;overflow-wrap:break-word}
+.card{display:flex;flex-direction:column}
+.card .num{margin-bottom:clamp(19px,2vw,31px)}
+.card p{margin-top:12px}
+.card>a{margin-top:auto;padding-top:14px}
+.tu-feature{min-height:232px}.tu-feature h3{margin:26px 0 12px}
+.tu-sector{min-height:230px}.tu-sector h3{margin-top:26px}
+.tu-thesis h3{margin-top:35px}
+/* FAQ: the title and accordion are siblings in one aligned grid, rather than stacked unrelated blocks */
+.section.faq-layout{display:grid;grid-template-columns:minmax(0,.84fr) minmax(0,1.16fr);gap:clamp(35px,5vw,105px);align-items:start}
+.section.faq-layout>.section-intro{display:block;align-self:start;min-width:0;margin:0}
+.section.faq-layout>.section-intro h2{max-width:570px}
+.section.faq-layout>.section-intro p{max-width:430px;margin:22px 0 0}
+.section.faq-layout>.faq-list{margin:0;max-width:none;width:100%;min-width:0;align-self:start;border-top:1px solid var(--line)}
+.section.faq-layout .faq-details{padding:0;border-bottom:1px solid var(--line)}
+.section.faq-layout .faq-details summary{display:flex;align-items:center;justify-content:space-between;min-height:70px;padding:15px 2px 15px 0;gap:20px;line-height:1.55}
+.section.faq-layout .faq-details summary span{flex:0 0 21px;text-align:center;line-height:1.2}
+.section.faq-layout .faq-details p{margin:0;padding:0 34px 22px 0;max-width:760px;line-height:1.85}
+.section.faq-layout .faq-details summary:hover,.section.faq-layout .faq-details[open] summary{color:#1c7851}
+.section.faq-layout .faq-details summary:focus-visible{outline:2px solid #21744b;outline-offset:3px;border-radius:4px}
+@media(max-width:1120px){
+ .head{min-height:72px;z-index:75}
+ .menu-toggle{display:inline-flex;align-items:center;justify-content:center;flex-shrink:0;min-height:44px;min-width:48px}
+ .nav{display:none;position:absolute;top:100%;left:0;right:0;z-index:90;flex-direction:column;align-items:stretch;gap:3px;padding:16px 3% 22px;max-height:calc(100svh - 72px);overflow-y:auto;overscroll-behavior:contain;background:#082b21;box-shadow:0 16px 36px #001c1744;border-bottom:1px solid #c7d99155}
+ .nav.open{display:flex}
+ .nav a{display:flex;align-items:center;min-height:44px;padding:10px 15px;border-radius:9px;font-size:13px;line-height:1.35}
+ .nav .nav-cta{justify-content:center;margin-top:7px;color:#163d2b}
+ .tu-insight-bar{grid-template-columns:minmax(0,.65fr) minmax(0,1.35fr);gap:15px}
+ .tu-insight-bar>a{grid-column:2}
+}
+@media(max-width:900px){
+ .section-intro{grid-template-columns:1fr;gap:13px;align-items:start}
+ .section-intro>p{margin:0;max-width:700px}
+ .section.faq-layout{grid-template-columns:1fr;gap:22px}
+ .section.faq-layout>.section-intro p{margin-top:14px;max-width:630px}
+ .section.faq-layout .faq-details summary{min-height:62px}
+ .feature-row{grid-template-columns:50px minmax(0,1fr);gap:12px}
+ .feature-row p{grid-column:2}
+ .tu-opening,.tu-profile-grid,.tu-dedication{grid-template-columns:1fr;gap:22px}
+ .tu-opening-visual,.tu-profile-deep{min-height:380px}
+ .tu-opening-copy,.tu-profile-text{padding:10px 0}
+ .data-flow{grid-template-columns:repeat(2,minmax(0,1fr))}
+ .data-flow .flow-arrow{display:none}
+ .tu-inquiry-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+ .tu-inquiry-grid>.tu-inquiry:last-child{grid-column:1/-1}
+ .tu-essay{grid-template-columns:1fr;gap:14px}
+ .tu-essay-head h3{margin-top:10px}
+ .tu-table-row{grid-template-columns:.85fr 1fr 1fr;gap:13px}
+}
+@media(max-width:700px){
+ :root{--section-rhythm:clamp(46px,8vw,62px)}
+ .section.ui-section.compact-section{padding-block:48px 52px}
+ .section.faq-layout{gap:19px}
+ .section.faq-layout .faq-details summary{font-size:14px;min-height:60px;padding:14px 0;gap:13px}
+ .section.faq-layout .faq-details p{font-size:12.5px;padding-right:24px;padding-bottom:19px}
+ .hero{min-height:max(660px,100svh)}
+ .hero.sub{min-height:565px;max-height:none}
+ .hero-inner,.hero.sub .hero-inner{padding-top:128px;padding-bottom:40px}
+ .hero-bottom{margin-top:33px;gap:9px}
+ .hero h1{overflow-wrap:break-word}
+ .head{min-height:70px}.nav{max-height:calc(100svh - 70px)}
+ .grid2,.grid3,.tu-finance-grid,.tu-sector-grid,.tu-inquiry-grid,.tu-thesis,.tu-mini-grid,.tu-insight-bar{grid-template-columns:1fr}
+ .tu-inquiry-grid>.tu-inquiry:last-child,.tu-insight-bar>a{grid-column:auto}
+ .tu-financial-table{border:0;overflow:visible;background:transparent}
+ .tu-table-head{display:none!important}
+ .tu-table-row{display:grid;grid-template-columns:1fr;gap:12px;border:1px solid #d3e2d0!important;border-radius:12px;padding:20px;margin-bottom:12px;background:white!important}
+ .tu-table-row span[data-label]:before{content:attr(data-label);display:block;font-size:10px;letter-spacing:.07em;font-weight:800;text-transform:uppercase;color:#467c58;margin-bottom:3px}
+ .tu-table-row span:first-child{font-size:15px}
+ .footer-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:25px 20px}
+}
+@media(max-width:540px){
+ .footer-grid{grid-template-columns:1fr;gap:23px}
+ .foot{padding-top:45px}.foot h4{margin-bottom:10px}.foot-bottom{gap:10px}
+ .hero-actions{gap:9px}.hero-actions .btn{min-height:44px;padding:10px 15px}
+ .hero h1{font-size:clamp(33px,9vw,48px);line-height:1.14}
+ .hero-bottom{font-size:9px;flex-direction:column;align-items:flex-start}
+ .section.faq-layout h2{font-size:clamp(27px,8vw,38px)}
+ .section.faq-layout .faq-details summary{font-size:13.5px}
+ .tu-feature,.tu-inquiry,.elevated-card,.card{padding:23px}
+ .visual-panel{min-height:310px}
+}
+@media(max-width:360px){
+ .brand-caption{font-size:8.5px;letter-spacing:.05em}
+ .monogram{font-size:22px}.brand{gap:8px}
+ .menu-toggle{min-width:45px;padding:8px}
+ .hero h1{font-size:32px}.hero-copy{font-size:13px}
+ .section.faq-layout .faq-details summary{font-size:13px}
+}

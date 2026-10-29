@@ -1,0 +1,34 @@
+name: TU Responsive Quality Gate
+on:
+  push:
+    branches: [main, responsive-qa-fix]
+  pull_request:
+  workflow_dispatch:
+jobs:
+  browser-layout:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Install browser test dependency
+        run: npm install --no-save playwright@1.56.0
+      - name: Install Chromium
+        run: npx playwright install --with-deps chromium
+      - name: Run website locally
+        run: |
+          python3 -m http.server 4173 --bind 127.0.0.1 > /tmp/tu-site.log 2>&1 &
+          sleep 2
+      - name: Inspect all six pages across ten screen widths
+        run: node scripts/responsive-check.cjs
+      - name: Upload representative screenshots
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: tu-layout-screenshots
+          path: qa-screenshots/
+          retention-days: 7
