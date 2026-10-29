@@ -22,3 +22,14 @@ Do not optimize for unverified financing products, investor-return promises, loc
 - Contact: investor-relations enquiries concerning IAG and professional capital/strategic stakeholder discussions. The site does not imply an offer or investment instrument.
 
 No keyword search volumes or traffic changes are asserted; thematic relevance is derived from IAG's documented operating areas and the commissioned executive brief.
+
+## Dedicated article search intent
+
+| Canonical route | Query/topic cluster | Reader value |
+|---|---|---|
+| /journal/working-capital-agriculture.html | agricultural working capital, cash conversion, inventory receivables, finance agribusiness | Explain cash-cycle drivers and investor due-diligence questions |
+| /journal/investment-readiness-agri-business.html | investor readiness in agriculture, agribusiness diligence, financial data room | Clarify information owners, risk documentation and investor-readiness practices |
+| /journal/cross-border-investor-trust.html | cross-border investor relations, international disclosure, investor trust | Discuss stakeholder coordination and responsible global communication |
+| /journal/capital-allocation-agri-value-chain.html | agricultural capital allocation, investment horizon, agribusiness risk | Compare financing requirements and economic drivers across operating models |
+
+These are semantic targets, not validated keyword search-volume data or a claim of current organic ranking.

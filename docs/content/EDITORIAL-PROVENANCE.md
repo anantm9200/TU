@@ -20,3 +20,9 @@
 
 ## Publication approval
 Confirm title, official biography, verified career milestones, authorised professional portrait, preferred corporate email channels and any deal examples with IAG leadership before adding verified claims.
+
+## New individual editorial articles
+
+The four Capital Journal articles were prepared for this site on 29 October 2026. They are presented as site editorial analysis rather than personally written published papers by Dam Ngoc Tu. Their business context is drawn from official IAG descriptions of agri-inputs, distribution, agronomy, commodities, technology and sustainability. They include visible caveats against interpreting the content as audited financial results, performance figures, financing offers, a personal deal history or regulated financial advice.
+
+The articles avoid invented dates of prior publication, personal achievements, investors, returns, transactions or financial statements. The employer's official designation for Tu still needs alignment with the commissioning title before public authority-building.

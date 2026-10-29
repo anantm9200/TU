@@ -23,7 +23,7 @@ jobs:
         run: |
           python3 -m http.server 4173 --bind 127.0.0.1 > /tmp/tu-site.log 2>&1 &
           sleep 2
-      - name: Inspect all six pages across ten screen widths
+      - name: Inspect ten pages across seventeen screen widths
         run: node scripts/responsive-check.cjs
       - name: Upload representative screenshots
         if: always()

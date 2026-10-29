@@ -38,3 +38,9 @@ No ranking gains, indexation or AI citations are claimed.
 Expanded Home, Profile, Investor Relations, Perspectives and Contact with 11 new in-depth sections. Replaced generic introductory copy with IAG-specific material, cross-referenced public IAG sources, added an accessible client-side four-topic IAG Capital Intelligence Lens with static summary, added long-form editorial analysis on agribusiness working capital and investment quality, strengthened IAG references in all five shared footers/prefooters, and updated five titles/descriptions via central SEO config.
 
 Content claims are commissioned positioning, not independently proven financial achievements. A separate `docs/content/EDITORIAL-PROVENANCE.md` documents facts, editorial framework and the outstanding difference in the corporate leadership-directory title. No invented financial metrics or actual transactions were added.
+
+## October 29 editorial publishing expansion
+
+Added four standalone, canonically indexed journal pages with BlogPosting schema, related reading, article table of contents and contextual references to IAG's public websites. Added a filterable/searchable insights hub; capital-journey, decision-board and featured journal sections to Home; financial-question and global operating context sections to Profile; capital disciplines and an interactive briefing checklist to Investor Relations; contextual enquiry guidance to Contact; and general security guidance to Privacy.
+
+Responsive Chromium regression covers all ten pages at seventeen viewports, including 2048px. This is a code and browser quality check, not an assertion of live organic ranking.

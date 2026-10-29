@@ -34,3 +34,9 @@ Important query/page pairs:
 - **What financial risks matter in agribusiness expansion?** — Insights and Expertise; cash-cycle, commodity-price, currency, seasonality and execution considerations.
 
 Primary sources: https://www.invadeagro.com/ ; https://www.invadeagro.com/aboutus ; https://www.invadeagro.com/iag ; https://www.invadeagro.com/agriintelligence ; https://www.invadeagro.com/decisionmakers . The person-title discrepancy remains unresolved and cannot be fixed by schema alone.
+
+## New canonical answer sources (29 October 2026)
+
+Four independent Capital Journal article URLs now give AI retrieval and traditional search crawlers distinct, topical documents instead of relying solely on a mixed-format insights page. Each offers visible headings, original explanatory paragraphs, source links to publicly available IAG operating material and cross-links. All are opinion/educational site editorial analysis, not a record of personal signed thought leadership by Tu.
+
+Do not infer indexation or AI citation from publication alone. Confirm live domain availability, crawl status, Search Console coverage and actual organic query performance after public deployment.
