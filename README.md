@@ -36,3 +36,6 @@ The site now includes four separately indexable Capital Journal articles with de
 
 ## Finance editorial journal expansion
 Published two additional independently indexable original articles: Risk Disclosure & Investor Confidence and Agricultural Intelligence & Investor Diligence. Each has own canonical, WebPage and BlogPosting JSON-LD, article outline, related reading and IAG source links. Six editorial articles are now reachable from the searchable and filterable Insights index. These are not personally attributed quotes, achieved returns or financing offers.
+
+## Typography and editorial layout — 29 October 2026
+Poppins used for headings; Inter for body and controls; editorial italics added to hero and section emphasis. New investor-brief interaction, leadership, financial risk, capital intelligence and contact guidance. Insights collection expanded to six independently indexable articles. Chromium/Playwright QA covers 12 pages across 17 viewports, and automated SEO checks verify all canonical pages.
