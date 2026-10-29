@@ -14,3 +14,6 @@ CI Playwright test is intended for viewports 320–1920px across all six pages, 
 
 ## Browser QA iteration
 The first complete Chromium run found Contact page overflow at 768px (827px content). Its form and adjacent copy were still rendered side-by-side. The layout now stacks these at <=1024px and ensures form fields use fluid, non-overflowing columns. Re-run all ten widths before promoting to main.
+
+## QA pass, 60 combinations
+The second GitHub Actions run (https://github.com/anantm9200/TU/actions/runs/40935993106) completed successfully after the 768px form fix. The follow-up smoke test increases viewport coverage to 320–2560px, explicitly testing the 2048px supplied screenshot width and a 2560px large monitor.

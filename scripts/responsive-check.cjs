@@ -2,7 +2,7 @@
 'use strict';
 const {chromium}=require('playwright');
 const fs=require('fs');
-const widths=[320,360,375,414,768,900,1024,1280,1440,1920];
+const widths=[320,344,360,375,390,414,540,768,820,900,1024,1120,1280,1440,1920,2048,2560];
 const pages=['/','/about.html','/expertise.html','/insights.html','/contact.html','/privacy.html'];
 const site='http://127.0.0.1:4173',fails=[],checks=[];
 (async()=>{
@@ -40,7 +40,7 @@ const site='http://127.0.0.1:4173',fails=[],checks=[];
        if(layout.faq.left<layout.faq.right-4)fails.push(width+' '+url+' overlapping FAQ columns');
       }else if(layout.faq.ly<layout.faq.ty)fails.push(width+' '+url+' FAQ order wrong');
      }
-     if([375,1024,1440].includes(width)){
+     if([375,1024,1440,2048].includes(width)){
        if(layout.faq){
         const target=page.locator('.faq-layout details').first();
         await target.locator('summary').click();
