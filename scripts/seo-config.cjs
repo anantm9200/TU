@@ -2,7 +2,7 @@
 'use strict';
 const BASE="https://damngoctu.com";
 const SITE_NAME='Dam Ngoc Tu';
-const EXECUTIVE_TITLE='Global Director, Investor Relations'; // Commissioning brief; reconcile with IAG public directory before launch.
+const EXECUTIVE_TITLE='Deputy Director – Investor Relations'; // Role confirmed by supplied 30 October 2026 professional profile.
 const ORGANIZATION_URL='https://www.invadeagro.com';
 const SOCIAL_IMAGE='/assets/og-image.svg'; // TODO: production-verified 1200x630 raster preview image.
 const PAGES=[
@@ -11,8 +11,8 @@ const PAGES=[
     "path": "/",
     "kind": "WebPage",
     "label": "Home",
-    "title": "Dam Ngoc Tu | IAG Global Investor Relations & Finance",
-    "description": "Explore Dam Ngoc Tu's financial intelligence and global investor-relations work with Invade Agro Global, connecting agricultural operations, capital and investors.",
+    "title": "Dam Ngoc Tu | IAG Investor Relations, Corporate Finance & M&A",
+    "description": "Dam Ngoc Tu is Deputy Director – Investor Relations at Invade Agro Global, supporting corporate finance, capital markets, Vietnam acquisition assessments and financial operations.",
     "image": "architecture"
   },
   {
@@ -20,8 +20,8 @@ const PAGES=[
     "path": "/about",
     "kind": "ProfilePage",
     "label": "Profile",
-    "title": "Dam Ngoc Tu | Financial Intelligence & IAG Leadership",
-    "description": "Discover Dam Ngoc Tu's investor-relations role at Invade Agro Global, his financial approach and the importance of informed capital dialogue across agriculture.",
+    "title": "Dam Ngoc Tu | Deputy Director – Investor Relations at IAG",
+    "description": "Professional profile of Dam Ngoc Tu: corporate finance, Vietnam M&A assessments, SSI Securities, Nam A Commercial Bank and nine ACCA Applied Knowledge and Skills examinations.",
     "image": "architecture"
   },
   {
@@ -29,8 +29,8 @@ const PAGES=[
     "path": "/expertise",
     "kind": "WebPage",
     "label": "Investor Relations",
-    "title": "Investor Relations & Capital Strategy | Dam Ngoc Tu",
-    "description": "Explore Dam Ngoc Tu's work with IAG across investor engagement, capital strategy, agricultural business economics, due diligence and stakeholder relations.",
+    "title": "Corporate Finance, M&A & Investor Relations | Dam Ngoc Tu",
+    "description": "Dam Ngoc Tu's work at IAG includes investor relations, acquisition assessments, preliminary valuation, financial due diligence, capital markets and Vietnam financial operations.",
     "image": "market"
   },
   {
@@ -38,8 +38,8 @@ const PAGES=[
     "path": "/insights",
     "kind": "CollectionPage",
     "label": "Perspectives",
-    "title": "Financial & Investor Relations Insights | Dam Ngoc Tu",
-    "description": "Editorial perspectives on finance, working capital, investor confidence and agricultural growth in the context of Invade Agro Global's operations.",
+    "title": "Corporate Finance & Investor Relations Insights | Dam Ngoc Tu",
+    "description": "Original editorial perspectives on valuation, financial diligence, investor confidence, capital markets and agricultural finance, in the context of Tu's work with IAG.",
     "image": "data"
   },
   {
@@ -47,8 +47,8 @@ const PAGES=[
     "path": "/contact",
     "kind": "ContactPage",
     "label": "Contact",
-    "title": "IAG Investor Relations Enquiries | Dam Ngoc Tu",
-    "description": "Connect with Dam Ngoc Tu's investor-relations office regarding Invade Agro Global, institutional dialogue, cross-border coordination and strategic partnerships.",
+    "title": "Contact Dam Ngoc Tu | IAG Finance & Investor Relations",
+    "description": "Connect regarding IAG investor relations, corporate finance, capital markets, Vietnam acquisition assessments and professional corporate development enquiries.",
     "image": "architecture"
   },
   {
@@ -141,7 +141,7 @@ const HERO_IMAGES={
 };
 function graphFor(page){
  const url=BASE+page.path,personId=BASE+'/#person',websiteId=BASE+'/#website',orgId=BASE+'/#invade-agro-global',pageId=url+'#webpage';
- const person={'@type':'Person','@id':personId,name:SITE_NAME,url:BASE+'/',jobTitle:EXECUTIVE_TITLE,worksFor:{'@id':orgId},knowsAbout:['Investor relations','International stakeholder engagement','Investment readiness','Cross-border communication','Investor reporting']};
+ const person={'@type':'Person','@id':personId,name:SITE_NAME,url:BASE+'/',jobTitle:EXECUTIVE_TITLE,worksFor:{'@id':orgId},alternateName:'Ngoc Tu Dam',workLocation:{'@type':'Place',name:'Vietnam'},knowsAbout:['Investor relations','Corporate finance','Mergers and acquisitions','Capital markets','Financial due diligence','Preliminary valuation','Vietnam corporate development','Treasury coordination','Financial reporting']};
  const organization={'@type':'Organization','@id':orgId,name:'Invade Agro Global',url:ORGANIZATION_URL};
  const website={'@type':'WebSite','@id':websiteId,name:SITE_NAME,url:BASE+'/',inLanguage:'en',publisher:{'@id':personId}};
  const primary={'@type':page.kind,'@id':pageId,name:page.title,url,inLanguage:'en',description:page.description,isPartOf:{'@id':websiteId},about:{'@id':personId}};

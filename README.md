@@ -43,3 +43,7 @@ Poppins used for headings; Inter for body and controls; editorial italics added 
 
 ## Extensionless URLs (October 2026)
 Vercel uses cleanUrls:true and trailingSlash:false. User-visible pages are now /about, /expertise, /insights, /contact, /privacy and /journal/<slug>, with 308 redirects from old .html URLs. HTML filenames remain unchanged internally; internal navigation, structured data, canonical tags, sitemap and llms.txt all use the clean URL. The browser QA runs a matching local server and explicitly checks clean URLs, .html redirects and trailing slash normalization at 375px. Public domain connection remains separate from this implementation.
+
+
+## Source-based executive profile update (30 October 2026)
+Executive details now follow the supplied Dam Ngoc Tu - Profile.pdf. Designation is Deputy Director – Investor Relations at IAG, Vietnam. Profile-related work includes investor communications and capital markets, Vietnam acquisition assessments, valuation, financial diligence, transaction planning, adviser liaison, corporate development, and establishment of IAG Vietnam financial operations. Prior SSI Securities and Nam A Commercial Bank experience and nine ACCA Applied Knowledge and Skills examinations are documented. No claim of completed acquisitions, transaction values, specific former titles or full ACCA membership is made. See docs/content/PROFILE-SOURCE-RECONCILIATION.md.
