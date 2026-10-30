@@ -39,3 +39,7 @@ Published two additional independently indexable original articles: Risk Disclos
 
 ## Typography and editorial layout — 29 October 2026
 Poppins used for headings; Inter for body and controls; editorial italics added to hero and section emphasis. New investor-brief interaction, leadership, financial risk, capital intelligence and contact guidance. Insights collection expanded to six independently indexable articles. Chromium/Playwright QA covers 12 pages across 17 viewports, and automated SEO checks verify all canonical pages.
+
+
+## Extensionless URLs (October 2026)
+Vercel uses cleanUrls:true and trailingSlash:false. User-visible pages are now /about, /expertise, /insights, /contact, /privacy and /journal/<slug>, with 308 redirects from old .html URLs. HTML filenames remain unchanged internally; internal navigation, structured data, canonical tags, sitemap and llms.txt all use the clean URL. The browser QA runs a matching local server and explicitly checks clean URLs, .html redirects and trailing slash normalization at 375px. Public domain connection remains separate from this implementation.

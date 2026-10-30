@@ -1,7 +1,7 @@
 name: TU SEO Quality Gate
 on:
   push:
-    branches: [main, tu-editorial-font-refresh]
+    branches: [main, tu-editorial-font-refresh, clean-url-routing]
   pull_request:
   workflow_dispatch:
 jobs:

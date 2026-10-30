@@ -5,6 +5,11 @@ const fs=require('fs'),path=require('path');
 const {BASE,PAGES,graphFor,headFor,ORGANIZATION_URL}=require('./seo-config.cjs');
 const root=path.resolve(__dirname,'..'),fail=[],warn=[],get=(r,f)=>fs.readFileSync(path.join(root,f),'utf8');
 const idx=new Set(PAGES.map(x=>x.path));
+const routeFile=new Map(PAGES.map(x=>[x.path,x.file]));
+const routing=JSON.parse(get(0,'vercel.json'));
+if(routing.cleanUrls!==true||routing.trailingSlash!==false)fail.push('Vercel must use cleanUrls:true and trailingSlash:false');
+if(PAGES.some(p=>p.path!=="/"&&p.path.endsWith('.html')))fail.push('Canonical page paths must be extensionless');
+
 const tags=(s,name)=>[...s.matchAll(new RegExp('<'+name+'\\b[^>]*>','gi'))].map(m=>m[0]);
 const attr=(s,name)=>s.match(new RegExp('\\b'+name+'="([^"]*)"'))?.[1]||'';
 const meta=(s,key,value)=>tags(s,'meta').filter(t=>attr(t,key)===value);
@@ -61,13 +66,15 @@ for(const p of PAGES){
  const ids=new Set;
  for(const m of html.matchAll(/\bid="([^"]+)"/g)){if(ids.has(m[1]))fail.push(file+': duplicate ID '+m[1]);ids.add(m[1])}
  for(const m of html.matchAll(/\b(?:href|src)="(\/[\w.\-\/#?=&]*)"/g)){
-  const link=m[1],target=link.split('#')[0].split('?')[0],local=(target==='/'?'index.html':target.replace(/^\//,''));
+  const link=m[1],target=link.split('#')[0].split('?')[0],local=routeFile.get(target)||(target==='/'?'index.html':target.replace(/^\//,''));
+  if(target.endsWith('.html'))fail.push(file+': legacy .html internal link '+link);
   if(!fs.existsSync(path.join(root,local)))fail.push(file+': broken internal file '+link);
   if(link.includes('#') && (target===''||target===p.path) && !ids.has(link.split('#')[1]))fail.push(file+': missing anchor '+link);
  }
 }
 for(const u of urls)if(!idx.has(u.replace(BASE,'')))fail.push('Sitemap has noncanonical/unlisted URL: '+u);
 if(urls.length!==PAGES.length)fail.push('Sitemap URL count mismatch');
+if(urls.some(u=>u.endsWith('.html')))fail.push('Sitemap contains old .html URLs');
 if(!robots.includes('Sitemap: '+BASE+'/sitemap.xml'))fail.push('Sitemap missing from robots.txt');
 if(!/name="robots" content="noindex/.test(get(0,'404.html')))fail.push('404 page must include explicit noindex');
 const js=get(0,'assets/site.js');if(!js.includes('DOMContentLoaded'))warn.push('Interaction entrypoint not detected');

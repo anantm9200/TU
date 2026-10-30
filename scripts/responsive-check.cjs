@@ -3,7 +3,7 @@
 const {chromium}=require('playwright');
 const fs=require('fs');
 const widths=[320,344,360,375,390,414,540,768,820,900,1024,1120,1280,1440,1920,2048,2560];
-const pages=['/','/about.html','/expertise.html','/insights.html','/contact.html','/privacy.html','/journal/working-capital-agriculture.html','/journal/investment-readiness-agri-business.html','/journal/cross-border-investor-trust.html','/journal/capital-allocation-agri-value-chain.html','/journal/risk-disclosure-investor-confidence.html','/journal/agricultural-data-investor-diligence.html'];
+const pages=require('./seo-config.cjs').PAGES.map(p=>p.path);
 const site='http://127.0.0.1:4173',fails=[],checks=[];
 (async()=>{
  const browser=await chromium.launch({headless:true,args:['--no-sandbox']});
@@ -21,6 +21,17 @@ const site='http://127.0.0.1:4173',fails=[],checks=[];
     try{
      const response=await page.goto(site+url,{waitUntil:'domcontentloaded',timeout:15000});
      if(response.status()!==200)fails.push(width+' '+url+' HTTP '+response.status());
+     if(width===375){
+       const old=url==='/'?'/index.html':url+'.html';
+       const legacy=await page.request.get(site+old,{maxRedirects:0});
+       const dest=new URL(legacy.headers()['location']||'/',site).pathname;
+       if(legacy.status()!==308||dest!==url)fails.push(width+' '+url+' .html redirect '+legacy.status()+' -> '+dest);
+       if(url!=='/'){
+         const trailing=await page.request.get(site+url+'/',{maxRedirects:0});
+         const dest2=new URL(trailing.headers()['location']||'/',site).pathname;
+         if(trailing.status()!==308||dest2!==url)fails.push(width+' '+url+' trailing slash redirect '+trailing.status()+' -> '+dest2);
+       }
+     }
      const layout=await page.evaluate(()=>{
       const faq=document.querySelector('.faq-layout');
       const title=faq?.querySelector('.section-intro')?.getBoundingClientRect();
@@ -55,7 +66,7 @@ const site='http://127.0.0.1:4173',fails=[],checks=[];
         await page.keyboard.press('Escape');
         if(await menu.getAttribute('aria-expanded')!=='false')fails.push(width+' '+url+' Escape did not close mobile navigation');
        }
-       if(url==='/insights.html'){
+       if(url==='/insights'){
         const filters=page.locator('[data-filter="global"]');await filters.click();
         if(await page.locator('[data-journal-card]:visible').count()!==1)fails.push(width+' '+url+' category filter not working');
         await page.locator('#journal-query').fill('nonexistent phrase 12345');
@@ -63,18 +74,18 @@ const site='http://127.0.0.1:4173',fails=[],checks=[];
         await page.locator('#journal-query').fill('');
         await page.locator('[data-filter="all"]').click();
        }
-       if(url==='/expertise.html'){
+       if(url==='/expertise'){
         await page.locator('[data-briefing-check]').first().check();
         if(!(await page.locator('#briefing-count').innerText()).includes('1'))fails.push(width+' '+url+' briefing checklist broken');
        }
-       if(url==='/expertise.html'){
+       if(url==='/expertise'){
         await page.locator('[data-iag-sector="trade"]').click();
         if(!(await page.locator('#tu-lens-output').innerText()).includes('Trading discipline'))fails.push(width+' expertise: IAG Capital Lens broken');
        }
        if([375,1440,2048].includes(width)){
-        if(url==='/insights.html')await page.locator('.journal-hub').screenshot({path:'qa-screenshots/journal-hub-'+width+'.png',animations:'disabled'});
+        if(url==='/insights')await page.locator('.journal-hub').screenshot({path:'qa-screenshots/journal-hub-'+width+'.png',animations:'disabled'});
         if(url==='/')await page.locator('.capital-journey').screenshot({path:'qa-screenshots/capital-journey-'+width+'.png',animations:'disabled'});
-        if(url==='/journal/working-capital-agriculture.html')await page.locator('.reading-layout').screenshot({path:'qa-screenshots/article-reader-'+width+'.png',animations:'disabled'});
+        if(url==='/journal/working-capital-agriculture')await page.locator('.reading-layout').screenshot({path:'qa-screenshots/article-reader-'+width+'.png',animations:'disabled'});
        }
        if(url==='/'){
         await page.locator('[data-ready]').first().check();

@@ -1,7 +1,7 @@
 name: TU Responsive Quality Gate
 on:
   push:
-    branches: [main, responsive-qa-fix, tu-editorial-font-refresh]
+    branches: [main, responsive-qa-fix, tu-editorial-font-refresh, clean-url-routing]
   pull_request:
   workflow_dispatch:
 jobs:
@@ -21,7 +21,7 @@ jobs:
         run: npx playwright install --with-deps chromium
       - name: Run website locally
         run: |
-          python3 -m http.server 4173 --bind 127.0.0.1 > /tmp/tu-site.log 2>&1 &
+          node scripts/serve-clean.cjs > /tmp/tu-site.log 2>&1 &
           sleep 2
       - name: Inspect ten pages across seventeen screen widths
         run: node scripts/responsive-check.cjs
