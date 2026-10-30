@@ -17,7 +17,7 @@ const PAGES=[
   },
   {
     "file": "about.html",
-    "path": "/about.html",
+    "path": "/about",
     "kind": "ProfilePage",
     "label": "Profile",
     "title": "Dam Ngoc Tu | Financial Intelligence & IAG Leadership",
@@ -26,7 +26,7 @@ const PAGES=[
   },
   {
     "file": "expertise.html",
-    "path": "/expertise.html",
+    "path": "/expertise",
     "kind": "WebPage",
     "label": "Investor Relations",
     "title": "Investor Relations & Capital Strategy | Dam Ngoc Tu",
@@ -35,7 +35,7 @@ const PAGES=[
   },
   {
     "file": "insights.html",
-    "path": "/insights.html",
+    "path": "/insights",
     "kind": "CollectionPage",
     "label": "Perspectives",
     "title": "Financial & Investor Relations Insights | Dam Ngoc Tu",
@@ -44,7 +44,7 @@ const PAGES=[
   },
   {
     "file": "contact.html",
-    "path": "/contact.html",
+    "path": "/contact",
     "kind": "ContactPage",
     "label": "Contact",
     "title": "IAG Investor Relations Enquiries | Dam Ngoc Tu",
@@ -53,7 +53,7 @@ const PAGES=[
   },
   {
     "file": "privacy.html",
-    "path": "/privacy.html",
+    "path": "/privacy",
     "kind": "WebPage",
     "label": "Privacy",
     "title": "Privacy Notice | Dam Ngoc Tu",
@@ -63,7 +63,7 @@ const PAGES=[
 ,
 {
   "file": "journal/working-capital-agriculture.html",
-  "path": "/journal/working-capital-agriculture.html",
+  "path": "/journal/working-capital-agriculture",
   "kind": "WebPage",
   "label": "Working Capital in Agriculture",
   "title": "Working Capital in Agriculture | Investor Relations Insights",
@@ -75,7 +75,7 @@ const PAGES=[
 },
 {
   "file": "journal/investment-readiness-agri-business.html",
-  "path": "/journal/investment-readiness-agri-business.html",
+  "path": "/journal/investment-readiness-agri-business",
   "kind": "WebPage",
   "label": "Investment Readiness",
   "title": "Investor Readiness for Agribusiness | Dam Ngoc Tu Insights",
@@ -87,7 +87,7 @@ const PAGES=[
 },
 {
   "file": "journal/cross-border-investor-trust.html",
-  "path": "/journal/cross-border-investor-trust.html",
+  "path": "/journal/cross-border-investor-trust",
   "kind": "WebPage",
   "label": "Cross-Border Investor Trust",
   "title": "Cross-Border Investor Trust & Disclosure | Investor Relations",
@@ -99,7 +99,7 @@ const PAGES=[
 },
 {
   "file": "journal/capital-allocation-agri-value-chain.html",
-  "path": "/journal/capital-allocation-agri-value-chain.html",
+  "path": "/journal/capital-allocation-agri-value-chain",
   "kind": "WebPage",
   "label": "Capital Allocation",
   "title": "Capital Allocation in Agricultural Value Chains | Insights",
@@ -111,7 +111,7 @@ const PAGES=[
 },
 {
   "file": "journal/risk-disclosure-investor-confidence.html",
-  "path": "/journal/risk-disclosure-investor-confidence.html",
+  "path": "/journal/risk-disclosure-investor-confidence",
   "kind": "WebPage",
   "label": "Risk Disclosure",
   "title": "Risk Disclosure & Investor Confidence | Dam Ngoc Tu Insights",
@@ -123,7 +123,7 @@ const PAGES=[
 },
 {
   "file": "journal/agricultural-data-investor-diligence.html",
-  "path": "/journal/agricultural-data-investor-diligence.html",
+  "path": "/journal/agricultural-data-investor-diligence",
   "kind": "WebPage",
   "label": "Agricultural Intelligence",
   "title": "Agricultural Intelligence & Investor Diligence | Dam Ngoc Tu",
@@ -155,7 +155,7 @@ function graphFor(page){
   primary.breadcrumb={'@id':bc};
   graph.push({'@type':'BreadcrumbList','@id':bc,itemListElement:[
    {'@type':'ListItem',position:1,name:'Home',item:BASE+'/'},
-   ...(page.article?[{'@type':'ListItem',position:2,name:'Perspectives',item:BASE+'/insights.html'},{'@type':'ListItem',position:3,name:page.label,item:url}]:[{'@type':'ListItem',position:2,name:page.label,item:url}])
+   ...(page.article?[{'@type':'ListItem',position:2,name:'Perspectives',item:BASE+'/insights'},{'@type':'ListItem',position:3,name:page.label,item:url}]:[{'@type':'ListItem',position:2,name:page.label,item:url}])
   ]});
  }
  return {'@context':'https://schema.org','@graph':graph};

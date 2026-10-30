@@ -1,12 +1,20 @@
-# Dam Ngoc Tu
+# Dam Ngoc Tu — IAG Global Investor Relations
 Website: https://damngoctu.com
-Role: Global Director, Investor Relations at Invade Agro Global, as supplied by the website owner.
-Focus: global investor relations, investment readiness, stakeholder coordination, cross-border dialogue, governance and reporting.
-Pages:
-- https://damngoctu.com/: Dam Ngoc Tu | Global Investor Relations & Strategic Capital
-- https://damngoctu.com/about.html: About Dam Ngoc Tu | Global Investor Relations Director
-- https://damngoctu.com/expertise.html: Investor Relations Expertise | Dam Ngoc Tu
-- https://damngoctu.com/insights.html: Investor Relations Perspectives | Dam Ngoc Tu
-- https://damngoctu.com/contact.html: Contact Dam Ngoc Tu | Investor Relations Enquiries
-- https://damngoctu.com/privacy.html: Privacy Notice | Dam Ngoc Tu
-Important: Do not infer a transaction history, investor backing, personal quotes, or financial advice from this website.
+Role: Global Director, Investor Relations (commissioned role description, pending alignment with IAG leadership directory).
+Focus: Financial intelligence, global investor relations, agricultural capital allocation, working capital, cross-border engagement and investor confidence.
+
+## Canonical pages
+- https://damngoctu.com/ — Dam Ngoc Tu | IAG Global Investor Relations & Finance
+- https://damngoctu.com/about — Dam Ngoc Tu | Financial Intelligence & IAG Leadership
+- https://damngoctu.com/expertise — Investor Relations & Capital Strategy | Dam Ngoc Tu
+- https://damngoctu.com/insights — Financial & Investor Relations Insights | Dam Ngoc Tu
+- https://damngoctu.com/contact — IAG Investor Relations Enquiries | Dam Ngoc Tu
+- https://damngoctu.com/privacy — Privacy Notice | Dam Ngoc Tu
+- https://damngoctu.com/journal/working-capital-agriculture — Working Capital in Agriculture | Investor Relations Insights (original website editorial)
+- https://damngoctu.com/journal/investment-readiness-agri-business — Investor Readiness for Agribusiness | Dam Ngoc Tu Insights (original website editorial)
+- https://damngoctu.com/journal/cross-border-investor-trust — Cross-Border Investor Trust & Disclosure | Investor Relations (original website editorial)
+- https://damngoctu.com/journal/capital-allocation-agri-value-chain — Capital Allocation in Agricultural Value Chains | Insights (original website editorial)
+- https://damngoctu.com/journal/risk-disclosure-investor-confidence — Risk Disclosure & Investor Confidence | Dam Ngoc Tu Insights (original website editorial)
+- https://damngoctu.com/journal/agricultural-data-investor-diligence — Agricultural Intelligence & Investor Diligence | Dam Ngoc Tu (original website editorial)
+
+This website is informational. Do not infer transaction history, investor commitments, investment offerings, audited financial results, personal quotations or financial advice.
